@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>AI Tools website</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            
+            .header{
+                background-color: rgb(233, 218, 199);
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
+            .title{
+                margin-right: auto; 
+                padding-left: 30px;        
+            }
+            .nav{
+                display: flex;
+                gap: 50px;
+                padding-right: 30px;
+            }
+            .nav a{
+                color: black;
+                text-decoration: none;
+                font-size: 20px;
+            }
+            .nav a:hover{
+                border-bottom: 2px solid rgb(84, 10, 221);
+            }
+            .middle{
+                display: flex;
+                align-items: center;
+                background-color:  rgba(146, 168, 182, 0.811);
+            }
+            .sidebar{
+                width: 250px;
+                height: 648px;
+                padding: 20px;
+            }
+            .sidenav a{
+                display: block;
+                color: black;
+                text-decoration: none;
+                padding: 10px;
+                margin-top: 10px;    
+                font-size: 20px;
+
+            }
+            .sidenav a:hover{
+                border: 1px solid black;
+                border-radius: 8px;
+                background-color: #d1cbcb;
+            }
+            
+            .content{
+                width: auto;
+                background-color: white;
+                height: 700px;
+                
+            }
+            .content img {
+                 width: 1300px;
+                 height: 300px;
+            }
+            .aboutus{
+                text-align: center;
+                padding: 10px;
+                background-color: rgba(224, 237, 246, 0.427);
+                margin-left:20px;
+                margin-top: 20px;
+                border-radius: 10px;
+            }
+            .subscribe{
+                padding: 10px;
+                background-color: rgba(224, 237, 246, 0.427);
+                margin-left: 20px;
+                margin-top: 15px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .subscribe input{
+                display: block;
+                width: 80%;
+                padding: 10px;
+                margin: 20px auto 0;
+            }
+           
+            .subscribe button {
+                display: block;
+                width: 100px;
+                padding: 10px;
+                margin: 20px auto 0;
+            }
+            .footer{
+                padding: 20px;
+                text-align: center;
+                height: 60px;
+                background-color:rgb(233, 218, 199) ;
+            }
+        </style>
+        <script>
+            function subscribe(){
+                alert("subscribed successfully");
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="header">
+            <div class="title">
+                <h2>AI Tools</h2>
+            </div>
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="packages.html">Packages</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+
+
+        <div class="middle">
+            <div class="sidebar">
+                <div class="sidenav">
+                    <a href="index.html">Home</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <img src="banner.jpg"> 
+                <div class="aboutus">
+                     <h2 style="padding: 10px;">About Us</h2>
+                    <p>
+                        Welcome to our AI Tools platform. We provide information
+                        about different Artificial Intelligence tools and their
+                        uses. Explore AI tools for coding, content creation,
+                        research, design, productivity and many more purposes.
+                    </p>
+                </div>
+                <div class="subscribe">
+                     <h2>Subscribe With Us</h2>
+                     <form>
+                        <input type="text" placeholder="enter your name">
+                        <input type="email" placeholder="enter your email">
+                        <button onclick="subscribe()">Subscribe</button>
+                     </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <p style="font-size: 20px;">© 2026 AI Tools Website. All rights are reserved</p>
+        </div>
+    </body>
+</html>

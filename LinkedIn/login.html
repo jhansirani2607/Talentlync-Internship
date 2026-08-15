@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LinkedIn Login Page</title>
+
+        <style>
+            body{
+                background-color: #f3f2ef;
+            }
+            h1{
+                text-align: center;
+                color: #0a66c2;
+            }
+             .register{
+                width: 350px;
+                background-color: white;
+                padding: 30px;
+                margin: 30px auto;
+                border-radius: 10px;
+                border: 1px solid black;
+            } 
+            .form {
+                margin-bottom: 20px;
+            }
+            label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+             input {
+                margin-top: 10px; 
+                width: 100%;
+                padding: 10px;
+                
+            } 
+            button {
+                width: 100%;
+                padding: 12px;
+                background-color: #0a66c2;
+                color: white;
+                border-radius: 20px;
+                border: none;
+                font-size: 16px;
+            }
+        </style>
+        <script>
+            function login(){
+                let email=document.querySelector('input[name="email"]').value;
+                let password=document.querySelector('input[name="password"]').value;
+                if(email==="")
+                 {
+                    alert("Please enter your email");
+                    return false;
+                 }
+                 let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                 if(!emailPattern.test(email))
+                 {
+                    alert("Please enter a valid email");
+                    return false;
+                 }
+                 if(password==="")
+                 {
+                    alert("Please enter your password");
+                    return false;
+                 }
+                 if(password.length<6)
+                 {
+                    alert("password must contains atleast 6 characters");
+                    return false;
+                 }
+                alert("login successfully");
+                return true;
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>LinkedIn</h1>
+        <div class="register">
+            <form onsubmit="return login()">
+                <div class="form">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="enter your email">
+                </div>
+
+                <div class="form">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="enter your password">
+                </div>
+                <p>Forgot password?</p>
+                <button type="submit">Login</button>
+                <p style="text-align: center;">Or</p>
+                <button type="button" onclick="window.location.href='register.html'">Register</button>
+            </form>
+        </div>
+    </body>
+</html>

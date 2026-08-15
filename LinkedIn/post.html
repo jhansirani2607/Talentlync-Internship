@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <title>LinkedIn post page</title>
+        <style>
+            body{
+                background-color: #f3f2ef;
+            }
+            .header{
+                background-color: white;
+                height: 80px;
+            }
+            
+            p{
+                text-align: center;
+                margin-top: -20px;
+            }
+            button{
+                padding: 10px;
+                background-color: rgb(11, 11, 237);
+                color: white;
+                border: none;
+            }
+            input{
+                padding: 10px;
+                width: 100%;
+            }
+            .event{
+                height: 100px;
+                width:auto;
+            }
+            
+            .postcreate{
+                display: flex;
+            }
+            h1{
+                text-align: center;
+            }
+            .main{
+                margin-left: 30px;
+                width: 400px;
+                margin: 30px auto;
+            }
+            .eventform{
+                padding: 10px;
+                border: 1px solid black;
+                 background-color: antiquewhite;
+            }
+            .list{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .form {
+                margin-bottom: 20px;
+            }
+            label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+             input {
+                margin-top: 10px; 
+                width: 100%;
+                padding: 10px;
+                
+            } 
+            textarea{
+                width: 100%;
+            }
+            .footer{
+                background-color:white;
+                padding: 10px;
+            }
+        </style>
+        <script>
+            function post(){
+                alert("posted successfully");
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">  
+            <h1>👤 Dakka Jhansi Rani</h1>
+            <p>Post to Anyone</p>
+        </div>
+        <div class="content">
+            <input  type="text"placeholder="do you want to talk about?">
+        </div>
+        <div class="postcreate">
+            <div class="main">
+                <h1>Create an event</h1>
+                <form class="eventform">
+                    <div class="form">
+                        <label>Event type</label>
+                        <input type="radio" name="event" value="online">Online
+                        <input type="radio" name="event" value="in person">In person
+                    </div>
+                    <div class="form">
+                        <label>Event name</label><br>
+                        <textarea rows="1" cols="20px"></textarea>
+                    </div>
+                    <div class="list">
+                        <div class="form">
+                            <label>start date</label>
+                            <input type="date" name="date">
+                        </div>
+                        
+                        <div class="form">
+                            <label>start time</label>
+                            <input type="time" name="time1">
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="form">
+                            <label>end date</label>
+                            <input type="date" name="date">
+                        </div>
+                        
+                        <div class="form">
+                            <label>end time</label>
+                            <input type="time" name="time2">
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label>External event link</label>
+                        <textarea rows="1" cols="50"></textarea>
+                    </div>
+                    <button type="button" >Done</button>
+                    
+                </form>
+            </div> 
+            <div class="main">
+             <h1>Share a document</h1>
+                <form class="eventform">
+                    <input type="file" accept=".pdf">
+                </form>
+            </div>
+            <div class="main">
+              <h1>Create a poll</h1>
+              <form class="eventform">
+                <div class="from">
+                    <label>Your Question*</label>
+                    <textarea rows="2" cols="10" placeholder="how do you commute to work?"></textarea>
+                </div>
+                <br>
+                <div class="form">
+                    <label>Option1*</label>
+                    <input type="text" placeholder="public transportation" min="5" max="30">
+                </div>
+                <div class="form">
+                    <label>Option2*</label>
+                    <input type="text" placeholder="drive my self" min="5" max="30">
+                </div>
+                <div class="form">
+                    <button>+add option</button>
+                </div>
+                <div class="form">
+                    <label>Poll duration</label>
+                    <select>
+                        <option>1 day</option>
+                        <option>3 days</option>
+                        <option>1 Week</option>
+                        <option>2 weeks</option>
+                    </select>
+                </div>
+                <button> Done</button>
+               </form>
+            </div>      
+        </div>
+        <div class="footer">
+            <button onclick="post()">Post</button>
+            <button type="botton" onclick="window.location.href='mypost.html'">My Posts</button>
+        </div>
+    </body>
+</html>

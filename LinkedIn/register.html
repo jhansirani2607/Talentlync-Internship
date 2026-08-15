@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LinkedIn Register Page</title>
+
+        <style>
+            body {
+                background-color: #f3f2ef;
+            }
+            h1 {
+                text-align: center;
+                color: #0a66c2;
+            }
+
+            .register {
+                width: 350px;
+                margin: 30px auto;
+                background-color: white;
+                padding: 25px;
+                border-radius: 8px;
+                border: 1px solid black;
+            }
+            span{
+                color: red;
+            }
+            .form {
+                margin-bottom: 15px;
+            }
+
+            label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input {
+                margin-top:10px;
+                width: 100%;
+                padding: 10px;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                background-color: #0a66c2;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                font-size: 16px;
+            }
+        </style>
+        <script>
+            function register(){
+                let firstName=document.querySelector('input[name="firstname"]').value;
+                let lastName=document.querySelector('input[name="lastname"]').value;
+                let email=document.querySelector('input[name="email"]').value;
+                let password=document.querySelector('input[name="password"]').value;
+                let phoneNumber=document.querySelector('input[name="phone"]').value;
+                let dob=document.querySelector('input[name="dob"]').value;
+
+                let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let phonePattern=/^[0-9]{10}$/;
+
+                if(firstName==="" || firstName.length<3 || firstName.length>20 )
+                {
+                    alert("Please enter first name(3-20) characters");
+                    return false;
+                }
+                
+                if(lastName==="" || lastName.length<3 || lastName.length>20)
+                {
+                    alert("Please enter last name(3-20) characters");
+                    return false;
+                }
+
+                if(!emailPattern.test(email))
+                {
+                    alert("Please enter a valid email");
+                    return false;
+                }
+
+                if(password.length<6)
+                {
+                    alert("Password must contains at least 6 characters");
+                    return false;
+                }
+
+                if(!phonePattern.test(phoneNumber))
+                {
+                    alert("Phone number must contains 10 digits");
+                    return false;
+                }
+                
+                if(dob===""){
+                    alert("Please select the date of birth");
+                    return false;
+
+                }
+                alert("registered successfully");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>LinkedIn</h1>
+        <div class="register">
+            <form onsubmit="return register()">
+                <div class="form">
+                    <label>First Name</label>
+                    <input type="text" name="firstname"  placeholder="enter first name">
+                    <span id="firstNameError"></span>
+                </div>
+
+                <div class="form">
+                    <label>Last Name</label>
+                    <input type="text" name="lastname" placeholder="enter last name">
+                    <span id="lastNameError"></span>
+                </div>
+
+                <div class="form">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="enter email">
+                    <span id="emailError"></span>
+                </div>
+
+                <div class="form">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="enter password">
+                    <span id="passwordError"></span>
+                </div>
+
+                <div class="form">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="enter phone number">
+                    <span id="phoneError"></span>
+                </div>
+
+                <div class="form">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob">
+                    <span id="dobError"></span>
+                </div>
+                <button type="submit">Register</button>
+                <p style="text-align: center;">Or</p>
+                <button type="button" onclick="window.location.href='login.html'">
+                    Login
+                </button>
+            </form>
+
+        </div>
+
+    </body>
+</html>

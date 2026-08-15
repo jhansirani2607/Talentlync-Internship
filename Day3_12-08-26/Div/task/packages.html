@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>AI Tools website</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            
+            .header{
+                background-color: rgb(233, 218, 199);
+                height: 60px;
+                display: flex;
+                align-items: center;
+            }
+            .title{
+                margin-right: auto; 
+                padding-left: 30px;        
+            }
+            .nav{
+                display: flex;
+                gap: 50px;
+                padding-right: 30px;
+            }
+            .nav a{
+                color: black;
+                text-decoration: none;
+                font-size: 20px;
+            }
+            .nav a:hover{
+                border-bottom: 2px solid rgb(84, 10, 221);
+            }
+            .middle{
+                display: flex;
+                align-items: center;
+                background-color:  rgba(146, 168, 182, 0.811);
+            }
+            .sidebar{
+                width: 250px;
+                height: 648px;
+                padding: 2dvb;
+            }
+            
+            .sidenav a{
+                display: block;
+                color: black;
+                text-decoration: none;
+                padding: 10px;
+                margin-top: 10px;    
+                font-size: 20px;
+
+            }
+            .sidenav a:hover{
+                border: 1px solid black;
+                border-radius: 8px;
+                background-color: #d1cbcb;
+            }
+            
+            .contact{
+                width: 1300px;
+                background-color: white;
+                height: 700px;
+                
+            }
+    
+            table{
+                width:80%;
+                margin-left: 100px;
+            }
+            .packages{
+                padding: 10px;
+                background-color: rgba(224, 237, 246, 0.427);
+                margin: 50px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            th,td{
+                padding: 10px;
+                border: 1px solid black;
+            }
+            .footer{
+                padding: 20px;
+                text-align: center;
+                height: 60px;
+                background-color:rgb(233, 218, 199) ;
+            }
+        </style>
+        <script>
+            function subscribe(){
+                alert("subscribed successfully");
+            }
+        </script>
+        <script>
+            function subscribe(){
+                alert("subscribed successfully");
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="header">
+            <div class="title">
+                <h2>AI Tools</h2>
+            </div>
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="packages.html">Packages</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+
+
+        <div class="middle">
+            <div class="sidebar">
+                <div class="sidenav">
+                    <a href="index.html">Home</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="contact">
+                <div class="packages">
+                    <h1>AI Tools Packages</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool Name</th>
+                                <th>Purpose</th>
+                                <th>price</th>
+                                <th>usage</th>
+                                <th>SubScribe Now</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ChatGpt</td>
+                                <td>Ai assistant</td>
+                                <td>600</td>
+                                <td>coding,writing</td>
+                                <td> <button type="submit" onclick="subscribe()">Subscribe</button></td>
+                            </tr>
+                            <tr>
+                                <td>Google Gemini</td>
+                                <td>Ai reasearch</td>
+                                <td>700</td>
+                                <td>reseach ,study</td>
+                                <td> <button type="submit" onclick="subscribe()">Subscribe</button></td>
+                            </tr>
+                            <tr>
+                                <td>claud</td>
+                                <td>Ai writing</td>
+                                <td>650</td>
+                                <td>writing,analysis</td>
+                                <td> <button type="submit" onclick="subscribe()">Subscribe</button></td>
+                            </tr>
+                            <tr>
+                                <td>Github</td>
+                                <td>AI coding</td>
+                                <td>850</td>
+                                <td>Pogramming</td>
+                                <td> <button type="submit" onclick="subscribe()">Subscribe</button></td>
+                            </tr>
+                            <tr>
+                                <td>Github</td>
+                                <td>AI coding</td>
+                                <td>850</td>
+                                <td>Pogramming</td>
+                                <td> <button type="submit"onclick="subscribe()">Subscribe</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p style="font-size: 20px;">© 2026 AI Tools Website. All rights are reserved</p>
+        </div>
+    </body>
+</html>
