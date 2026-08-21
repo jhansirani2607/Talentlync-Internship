@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <div class="auth-logo">LinkedIn</div>
+
+        <h2>Sign in</h2>
+        <p class="auth-subtitle">
+            Stay updated on your professional world
+        </p>
+
+        <form onsubmit="loginUser(event)">
+
+            <label for="loginEmail">Email</label>
+            <input type="email"
+                   id="loginEmail"
+                   required
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                   placeholder="Enter your email">
+
+            <label for="loginPassword">Password</label>
+            <input type="password"
+                   id="loginPassword"
+                   required
+                   minlength="7"
+                   placeholder="Enter your password">
+
+            <button type="submit" class="primary-btn">
+                Sign in
+            </button>
+
+        </form>
+
+        <p class="auth-bottom">
+            New to LinkedIn?
+            <a href="register.html">Join now</a>
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

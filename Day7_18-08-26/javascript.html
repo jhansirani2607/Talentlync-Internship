@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Javascript concepts</title>
+        <style>
+            th,td{
+                padding: 9px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>contact us</h1>
+        <form>
+            <table border="0",cellpadding='0' cellspacing="0">
+                <tr>
+                    <td><label>name</label></td>
+                    <td>:<input type="text" name="name" value="jhansi" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label>email</label></td>
+                    <td>:<input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label>password</label></td>
+                    <td>:<input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><label>age</label></td>
+                    <td>:<input type="number" name="age" id="age"></td>
+                </tr>
+                <tr colspan="2">
+                    <td><p>this is the first paragaraph</p></td>
+                </tr>
+                <tr colspan="2">
+                    <td><p>this is the second paragaraph</p></td>
+                </tr>
+                <tr colspan="2">
+                    <td><button type="button" onclick="contactForm()">Submit</button></td>
+                </tr>
+                <tr colspan="2">
+                    <td><p class="res">paragraph tag</p></td>
+                </tr>
+                <tr colspan="2">
+                    <td><p id="res1">change the text color</p></td>
+                </tr>
+            </table>
+        </form>
+        <p id="resOfName"></p>
+        <p id="resOfEmail"></p>
+        <p id="resOfPassword"></p>
+        <p id="resOfAge"></p>
+    </body>
+    <script>
+        function contactForm()
+        {
+            document.getElementsByClassName("res")[0].innerHTML="content was changed";
+            document.getElementById("res1").style.color = "blue";
+            let name=document.getElementById("name").value;
+            let email=document.getElementById("email").value;
+            let password=document.getElementById("password").value;
+            let age=document.getElementById("age").value;
+            document.getElementById("resOfName").textContent="Name :"+name;
+            document.getElementById("resOfEmail").textContent="Email :"+email;
+            document.getElementById("resOfPassword").textContent="Password :"+password;
+            document.getElementById("resOfAge").textContent="Age :"+age;
+            localStorage.setItem('Name',name);
+            localStorage.setItem('Email',email);
+            localStorage.setItem('Password',password);
+            localStorage.setItem('Age',age);
+            console.log(typeof(name));
+        }
+    </script>
+</html>

@@ -1,4 +1,0 @@
-Div tag:  
-    group the related elements
-    create multiple page layouts
-    for example :header section ,footer section,side bar section etc in web page.

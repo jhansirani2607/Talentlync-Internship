@@ -1,0 +1,592 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LinkedIn - My Posts</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           MY POSTS PAGE
+        ========================== */
+
+        .my-posts-page {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 0 20px 50px;
+        }
+
+        .my-posts-heading {
+            margin-bottom: 25px;
+        }
+
+        .my-posts-heading h1 {
+            font-size: 28px;
+            color: #1d2226;
+            margin-bottom: 6px;
+        }
+
+        .my-posts-heading p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .my-post-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        }
+
+        .my-post-header {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px 10px;
+        }
+
+        .my-post-profile {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #0a66c2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .my-post-user h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #1d2226;
+        }
+
+        .my-post-user p {
+            margin: 3px 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .my-post-user span {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .my-post-content {
+            padding: 8px 20px 15px;
+        }
+
+        .my-post-content p {
+            color: #222;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .my-post-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f3f6f8;
+        }
+
+        .my-post-image img {
+            width: 100%;
+            display: block;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        .my-post-actions {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #eee;
+            padding: 5px 10px;
+        }
+
+        .my-post-actions button {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 12px;
+            cursor: pointer;
+            color: #555;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .my-post-actions button:hover {
+            background: #f3f6f8;
+            color: #0a66c2;
+        }
+
+        .my-post-actions button.liked {
+            color: #0a66c2;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+
+            .my-posts-page {
+                margin: 20px auto;
+                padding: 0 10px 30px;
+            }
+
+            .my-posts-heading h1 {
+                font-size: 24px;
+            }
+
+            .my-post-header {
+                padding: 15px;
+            }
+
+            .my-post-content {
+                padding: 8px 15px 15px;
+            }
+
+            .my-post-actions button {
+                font-size: 13px;
+                padding: 10px 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         LINKEDIN HEADER
+    ========================== -->
+
+    <header class="main-header">
+
+        <div class="header-left">
+
+            <a href="home.html" class="linkedin-logo">
+                in
+            </a>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="text" placeholder="Search">
+            </div>
+
+        </div>
+
+        <nav class="main-nav">
+
+            <!-- HOME -->
+
+            <a href="home.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Home</span>
+            </a>
+
+
+            <!-- MY NETWORK -->
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>My Network</span>
+            </a>
+
+
+            <!-- JOBS -->
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Jobs</span>
+            </a>
+
+
+            <!-- MESSAGING -->
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">✉</span>
+                <span>Messaging</span>
+            </a>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">♢</span>
+                <span>Notifications</span>
+            </a>
+
+
+            <!-- MY POSTS -->
+
+            <a href="mypost.html" class="nav-item active">
+                <span class="nav-icon profile-nav-icon">J</span>
+                <span>My Posts</span>
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MY POSTS
+    ========================== -->
+
+    <main class="my-posts-page">
+
+        <!-- PAGE HEADING -->
+
+        <div class="my-posts-heading">
+
+            <h1>My Posts</h1>
+
+            <p>
+                Your recent posts
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             POST 1 - JAVASCRIPT
+        ========================== -->
+
+        <article class="my-post-card">
+
+            <div class="my-post-header">
+
+                <div class="my-post-profile">
+                    J
+                </div>
+
+                <div class="my-post-user">
+
+                    <h3>Jhansi Rani</h3>
+
+                    <p>
+                        Computer Science Engineering Student
+                    </p>
+
+                    <span>
+                        2h • 🌐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-content">
+
+                <p>
+                    Started learning JavaScript and exploring
+                    how interactive web pages work. Excited to
+                    learn more and build interesting projects.
+                </p>
+
+                <div class="my-post-image">
+
+                    <img src="images/javascript.png"
+                         alt="JavaScript learning">
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-actions">
+
+                <button onclick="likePost(this)">
+                    👍 Like
+                </button>
+
+                <button onclick="commentPost(this)">
+                    💬 Comment
+                </button>
+
+                <button onclick="sharePost(this)">
+                    ↗ Share
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =========================
+             POST 2 - FRONTEND
+        ========================== -->
+
+        <article class="my-post-card">
+
+            <div class="my-post-header">
+
+                <div class="my-post-profile">
+                    J
+                </div>
+
+                <div class="my-post-user">
+
+                    <h3>Jhansi Rani</h3>
+
+                    <p>
+                        Computer Science Engineering Student
+                    </p>
+
+                    <span>
+                        1d • 🌐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-content">
+
+                <p>
+                    Successfully completed my frontend project!
+                    It was a great experience working with HTML,
+                    CSS and JavaScript and turning ideas into a
+                    working website.
+                </p>
+
+                <div class="my-post-image">
+
+                    <img src="images/frontend.png"
+                         alt="Frontend project">
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-actions">
+
+                <button onclick="likePost(this)">
+                    👍 Like
+                </button>
+
+                <button onclick="commentPost(this)">
+                    💬 Comment
+                </button>
+
+                <button onclick="sharePost(this)">
+                    ↗ Share
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =========================
+             POST 3 - HTML CSS
+        ========================== -->
+
+        <article class="my-post-card">
+
+            <div class="my-post-header">
+
+                <div class="my-post-profile">
+                    J
+                </div>
+
+                <div class="my-post-user">
+
+                    <h3>Jhansi Rani</h3>
+
+                    <p>
+                        Computer Science Engineering Student
+                    </p>
+
+                    <span>
+                        2d • 🌐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-content">
+
+                <p>
+                    Learning HTML and CSS has helped me understand
+                    how websites are structured and styled. Every
+                    new concept makes me more confident in coding.
+                </p>
+
+                <div class="my-post-image">
+
+                    <img src="images/html-css.png"
+                         alt="HTML and CSS learning">
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-actions">
+
+                <button onclick="likePost(this)">
+                    👍 Like
+                </button>
+
+                <button onclick="commentPost(this)">
+                    💬 Comment
+                </button>
+
+                <button onclick="sharePost(this)">
+                    ↗ Share
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- =========================
+             POST 4 - CODING
+        ========================== -->
+
+        <article class="my-post-card">
+
+            <div class="my-post-header">
+
+                <div class="my-post-profile">
+                    J
+                </div>
+
+                <div class="my-post-user">
+
+                    <h3>Jhansi Rani</h3>
+
+                    <p>
+                        Computer Science Engineering Student
+                    </p>
+
+                    <span>
+                        3d • 🌐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-content">
+
+                <p>
+                    Every small step in coding takes me closer
+                    to becoming a better developer. I am enjoying
+                    the journey of learning, practicing and
+                    building new things every day.
+                </p>
+
+                <div class="my-post-image">
+
+                    <img src="images/coding.png"
+                         alt="Coding">
+
+                </div>
+
+            </div>
+
+
+            <div class="my-post-actions">
+
+                <button onclick="likePost(this)">
+                    👍 Like
+                </button>
+
+                <button onclick="commentPost(this)">
+                    💬 Comment
+                </button>
+
+                <button onclick="sharePost(this)">
+                    ↗ Share
+                </button>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function likePost(button) {
+
+            button.classList.toggle("liked");
+
+            if (button.classList.contains("liked")) {
+                button.innerHTML = "👍 Liked";
+            } else {
+                button.innerHTML = "👍 Like";
+            }
+
+        }
+
+
+        function commentPost(button) {
+
+            const post = button.closest(".my-post-card");
+
+            let comment = prompt("Write your comment:");
+
+            if (comment && comment.trim() !== "") {
+
+                alert("Comment added: " + comment);
+
+            }
+
+        }
+
+
+        function sharePost(button) {
+
+            const post = button.closest(".my-post-card");
+
+            alert("Post shared successfully!");
+
+        }
+
+
+        function logout() {
+
+            alert("You have been logged out.");
+
+            window.location.href = "home.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

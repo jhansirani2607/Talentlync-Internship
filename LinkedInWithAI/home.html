@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LinkedIn - Home</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="main-header">
+
+        <div class="header-left">
+
+            <a href="home.html" class="linkedin-logo">
+                in
+            </a>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="text" placeholder="Search">
+            </div>
+
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="home.html" class="nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>My Network</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Jobs</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">✉</span>
+                <span>Messaging</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">♢</span>
+                <span>Notifications</span>
+            </a>
+
+            <a href="mypost.html" class="nav-item"> 
+                <span class="nav-icon profile-nav-icon">J</span> 
+                <span>My Posts</span> 
+            </a>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="linkedin-layout">
+
+
+        <!-- =========================
+             LEFT COLUMN
+        ========================== -->
+
+        <aside class="left-column">
+
+            <!-- Profile Card -->
+
+            <section class="profile-card">
+
+                <div class="profile-cover"></div>
+
+                <div class="profile-info">
+
+                    <div class="profile-image">
+                        J
+                    </div>
+
+                    <h2>Jhansi Rani</h2>
+
+                    <p class="profile-title">
+                        Computer Science Engineering Student
+                    </p>
+
+                    <p class="profile-location">
+                        Andhra Pradesh, India
+                    </p>
+
+                </div>
+
+                <div class="profile-stats">
+
+                    <div>
+                        <span>Profile views</span>
+                        <strong>48</strong>
+                    </div>
+
+                    <div>
+                        <span>Post impressions</span>
+                        <strong>126</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Profile Menu -->
+
+            <section class="profile-menu">
+
+                <a href="#">
+                    My Profile
+                </a>
+
+                <a href="mypost.html"> 
+                    My Posts 
+                </a>
+
+                <a href="#">
+                    Saved Items
+                </a>
+
+                <a href="#">
+                    Groups
+                </a>
+
+                <a href="#">
+                    Events
+                </a>
+
+            </section>
+
+        </aside>
+
+
+        <!-- =========================
+             CENTER COLUMN
+        ========================== -->
+
+        <section class="feed-column">
+
+
+            <!-- CREATE POST -->
+
+            <section class="create-post-card">
+
+                <div class="create-post-top">
+
+                    <div class="small-profile">
+                        J
+                    </div>
+
+                    <div class="start-post"
+                         onclick="openPostPopup()">
+
+                        Start a post
+
+                    </div>
+
+                </div>
+
+
+                <div class="post-options">
+
+                    <button onclick="openFile('photo')">
+                        <span>📷</span>
+                        Photo
+                    </button>
+
+                    <button onclick="openFile('video')">
+                        <span>🎥</span>
+                        Video
+                    </button>
+
+                    <button onclick="openEventPopup()">
+                        <span>📅</span>
+                        Event
+                    </button>
+
+                    <button onclick="openFile('document')">
+                        <span>📄</span>
+                        Document
+                    </button>
+
+                    <button onclick="openPollPopup()">
+                        <span>📊</span>
+                        Poll
+                    </button>
+
+                </div>
+
+                <input type="file"
+                       id="photoFile"
+                       accept="image/*"
+                       hidden>
+
+                <input type="file"
+                       id="videoFile"
+                       accept="video/*"
+                       hidden>
+
+                <input type="file"
+                       id="documentFile"
+                       accept=".pdf,.doc,.docx"
+                       hidden>
+
+            </section>
+
+
+            <!-- POST 1 -->
+
+            <article class="post-card">
+
+                <div class="post-header">
+
+                    <div class="small-profile">
+                        A
+                    </div>
+
+                    <div class="post-user-info">
+
+                        <h3>Arun Kumar</h3>
+
+                        <p>
+                            Software Developer
+                        </p>
+
+                        <span>
+                            2h • 🌐
+                        </span>
+
+                    </div>
+
+                    <button class="more-btn">
+                        ⋯
+                    </button>
+
+                </div>
+
+
+                <div class="post-content">
+
+                    <p>
+                        Excited to share my new project!
+                        Learning web development with HTML,
+                        CSS and JavaScript.
+                    </p>
+
+                    <div class="feed-image">
+                        <img src="images/arun-project.png"
+                             alt="Web development project">
+                    </div>
+
+                </div>
+
+
+                <div class="post-reactions">
+
+                    <span>👍 24</span>
+
+                    <span>
+                        5 comments
+                    </span>
+
+                </div>
+
+
+                <div class="post-actions">
+
+                    <button onclick="likePost(this)">
+                        👍 Like
+                    </button>
+
+                    <button>
+                        💬 Comment
+                    </button>
+
+                    <button>
+                        🔄 Repost
+                    </button>
+
+                    <button>
+                        ↗ Share
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- POST 2 -->
+
+            <article class="post-card">
+
+                <div class="post-header">
+
+                    <div class="small-profile profile-purple">
+                        S
+                    </div>
+
+                    <div class="post-user-info">
+
+                        <h3>Swetha</h3>
+
+                        <p>
+                            Frontend Developer
+                        </p>
+
+                        <span>
+                            5h • 🌐
+                        </span>
+
+                    </div>
+
+                    <button class="more-btn">
+                        ⋯
+                    </button>
+
+                </div>
+
+
+                <div class="post-content">
+
+                    <p>
+                        Consistency is the key to becoming
+                        a better developer. Keep learning,
+                        keep building and keep improving.
+                    </p>
+
+                </div>
+
+
+                <div class="post-reactions">
+
+                    <span>👍 18</span>
+
+                    <span>
+                        3 comments
+                    </span>
+
+                </div>
+
+
+                <div class="post-actions">
+
+                    <button onclick="likePost(this)">
+                        👍 Like
+                    </button>
+
+                    <button>
+                        💬 Comment
+                    </button>
+
+                    <button>
+                        🔄 Repost
+                    </button>
+
+                    <button>
+                        ↗ Share
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- POST 3 -->
+
+            <article class="post-card">
+
+                <div class="post-header">
+
+                    <div class="small-profile profile-green">
+                        R
+                    </div>
+
+                    <div class="post-user-info">
+
+                        <h3>Rahul</h3>
+
+                        <p>
+                            Java Developer
+                        </p>
+
+                        <span>
+                            1d • 🌐
+                        </span>
+
+                    </div>
+
+                    <button class="more-btn">
+                        ⋯
+                    </button>
+
+                </div>
+
+
+                <div class="post-content">
+
+                    <p>
+                        Working on improving my programming
+                        skills every day. Small progress is
+                        still progress.
+                    </p>
+
+                </div>
+
+
+                <div class="post-reactions">
+
+                    <span>👍 31</span>
+
+                    <span>
+                        7 comments
+                    </span>
+
+                </div>
+
+
+                <div class="post-actions">
+
+                    <button onclick="likePost(this)">
+                        👍 Like
+                    </button>
+
+                    <button>
+                        💬 Comment
+                    </button>
+
+                    <button>
+                        🔄 Repost
+                    </button>
+
+                    <button>
+                        ↗ Share
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =========================
+             RIGHT COLUMN
+        ========================== -->
+
+        <aside class="right-column">
+
+
+            <!-- People You May Know -->
+
+            <section class="right-card">
+
+                <h2>
+                    People you may know
+                </h2>
+
+
+                <div class="suggestion">
+
+                    <div class="suggestion-profile">
+                        R
+                    </div>
+
+                    <div class="suggestion-info">
+
+                        <h3>Rahul</h3>
+
+                        <p>
+                            Java Developer
+                        </p>
+
+                        <button onclick="connectUser(this)">
+                            Connect
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="suggestion">
+
+                    <div class="suggestion-profile profile-pink">
+                        P
+                    </div>
+
+                    <div class="suggestion-info">
+
+                        <h3>Priya</h3>
+
+                        <p>
+                            UI/UX Designer
+                        </p>
+
+                        <button onclick="connectUser(this)">
+                            Connect
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="suggestion">
+
+                    <div class="suggestion-profile profile-green">
+                        A
+                    </div>
+
+                    <div class="suggestion-info">
+
+                        <h3>Arun</h3>
+
+                        <p>
+                            Software Developer
+                        </p>
+
+                        <button onclick="connectUser(this)">
+                            Connect
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LinkedIn News -->
+
+            <section class="right-card news-card">
+
+                <h2>
+                    LinkedIn News
+                </h2>
+
+                <div class="news-item">
+
+                    <strong>
+                        AI skills are in demand
+                    </strong>
+
+                    <span>
+                        2h ago
+                    </span>
+
+                </div>
+
+                <div class="news-item">
+
+                    <strong>
+                        Tech hiring trends
+                    </strong>
+
+                    <span>
+                        5h ago
+                    </span>
+
+                </div>
+
+                <div class="news-item">
+
+                    <strong>
+                        Students focus on AI
+                    </strong>
+
+                    <span>
+                        1d ago
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <footer class="page-footer">
+
+                <span>About</span>
+                <span>Accessibility</span>
+                <span>Help</span>
+                <span>Privacy</span>
+
+                <p>
+                    LinkedIn Clone © 2026
+                </p>
+
+            </footer>
+
+        </aside>
+
+    </main>
+
+
+    <!-- =========================
+         CREATE POST POPUP
+    ========================== -->
+
+    <div class="popup" id="postPopup">
+
+        <div class="popup-content">
+
+            <button class="popup-close"
+                    onclick="closePopup('postPopup')">
+                ×
+            </button>
+
+            <h2>Create a post</h2>
+
+            <div class="popup-user">
+
+                <div class="small-profile">
+                    J
+                </div>
+
+                <div>
+                    <strong>Jhansi Rani</strong>
+                    <p>Post to anyone</p>
+                </div>
+
+            </div>
+
+            <textarea id="postText"
+                      placeholder="What do you want to talk about?"
+                      rows="7"></textarea>
+
+            <button class="popup-post-btn"
+                    onclick="createPost()">
+                Post
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         EVENT POPUP
+    ========================== -->
+
+    <div class="popup" id="eventPopup">
+
+        <div class="popup-content">
+
+            <button class="popup-close"
+                    onclick="closePopup('eventPopup')">
+                ×
+            </button>
+
+            <h2>Create an event</h2>
+
+            <input type="text"
+                   placeholder="Event name">
+
+            <input type="date">
+
+            <input type="text"
+                   placeholder="Location">
+
+            <button class="popup-post-btn"
+                    onclick="createEvent()">
+                Create Event
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         POLL POPUP
+    ========================== -->
+
+    <div class="popup" id="pollPopup">
+
+        <div class="popup-content">
+
+            <button class="popup-close"
+                    onclick="closePopup('pollPopup')">
+                ×
+            </button>
+
+            <h2>Create a poll</h2>
+
+            <input type="text"
+                   placeholder="Ask a question">
+
+            <input type="text"
+                   placeholder="Option 1">
+
+            <input type="text"
+                   placeholder="Option 2">
+
+            <button class="popup-post-btn"
+                    onclick="createPoll()">
+                Create Poll
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
