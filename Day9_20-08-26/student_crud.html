@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <title>CRUD operations</title>
+</head>
+<style>
+    label{
+        padding: 10px;
+        margin-top: 10px;
+    }
+    input{
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <form action="">
+        <label>name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name"><br>
+        <label>repo:</label>
+        <input type="number" name="repos" id="repos" placeholder="Enter your repos count"><br>
+        <label>branch:</label>
+        <select name="branch" id="branch">
+            <option value="cse">CSE</option>
+            <option value="csm">CSM</option>
+            <option value="csd">CSD</option>
+            <option value="ece">ECE</option>
+            <option value="eee">EEE</option>
+            <option value="mec">MEC</option>
+            <option value="civil">CIVIL</option>
+        </select><br><br>
+        <label>marks:</label>
+        <input type="number" id="marks" name="marks" placeholder="Enter your marks"><br>
+        <label>status:</label>
+        <select name="status" id="status">
+            <option value="choose">Choose</option>
+            <option value="actice">Active</option>
+            <option value="inactive">In-Actice</option>
+        </select><br><br>
+        <input type="button" value="Register" name="register" id="register">
+        <input type="reset" value="Clear" name="reset" id="reset">
+    </form><br>
+    <button type="button" onclick="checkuserscount()">Get Users</button>
+    <p id="res"></p>
+</body>
+<script src="student.js"></script>
+</html>
