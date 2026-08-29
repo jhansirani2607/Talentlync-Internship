@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Student crud operations</title>
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        />
+        <style>
+            .studentFormSection {
+                margin: 10px;
+                text-align: center;
+            }
+            
+        </style>
+        
+    </head>
+    <body onload="getAllStudents()">
+        <h2>CRUD OPERATIONS</h2>
+        <section class="studentFormSection">
+            <form id="studentForm">
+                <br/>
+                <div>
+                    <label>Student Name:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <label> Age:</label>
+                    <input type="number" name="age" id="age">
+                </div>
+                <div>
+                    <label>Department:</label>
+                    <select id="department">
+                        <option value="">Choose Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="CSM">CSM</option>
+                        <option value="Civil">Civil</option>
+                        <option value="ME">ME</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Marks:</label>
+                    <input type="number" name="marks" id="marks">
+                </div>
+                <div>
+                    <label>Status:</label>
+                    <select id="status">
+                        <option value="">Choose</option>
+                        <option value="active">Active</option>
+                        <option value="in-active">In-Active</option>
+                    </select>
+                </div>
+                <input
+                    type="button"
+                    onclick="createStudent()"
+                    id="submitButton"
+                    name="submitButton"
+                    value="Register Me"
+                    />
+                <input
+                    onclick="clearStudentForm()"
+                    type="button"
+                    id="resetButton"
+                    name="resetButton"
+                    value="Clear"
+                />
+            </form>
+        </section>
+        <section class="studentTableSection">
+            <h2>Student List:</h2>
+            <table id="studentTable" class="table table-border">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Department</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody  id="studentTableBody">
+                </tbody>
+            </table>
+        </section>
+    </body>
+    <script src="student.js" ref="reference"></script>
+</html>
