@@ -1,66 +1,128 @@
 <html>
     <head>
         <title>Linked In website</title>
+        <link rel="stylesheet" href="table.css">
+        <link rel="stylesheet" href="card.css">
         <style>
-            body{
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
                 background-color: #f3f2ef;
+                font-family: Arial, sans-serif;
             }
-            .header{
-                padding: 10px;
+
+            /* HEADER */
+            .header {
+                height: 70px;
+                padding: 0 30px;
                 display: flex;
                 align-items: center;
-                background-color:  rgba(186, 205, 210, 0.499);
-                height: 60px;
-            }
-            .title{
-                padding: 30px;
-                margin-left: 20px;
-            }
-            .nav a{
-                font-size: 25px;
-                margin-left: 50px;
-                color: black;
-            }
-            .middle{
-                display: flex;
-                align-items: center;
-            }
-            .sidenav{
-                height: 640px;
-                width: 200px;
-                padding: 20px;
-                background-color:  rgba(178, 228, 241, 0.499);
-            }
-            .sidenav a{
-                display: block;
-                padding: 10px;
-                font-size: 20px;
-                color: black;
-            }
-            .content{
-                padding: 20px;
-                text-align: center;
-                margin: 30px auto;
                 background-color: white;
-                width: 400px;
-                height: 200px;
-                border: 1px solid black;
+                border-bottom: 1px solid #ddd;
             }
-            button{
-                background-color: rgb(15, 15, 228);
-                border: none;
-                border-radius: 10px;
-                padding: 15px;
+
+            .title {
+                margin-right: 70px;
             }
-            .footer{
-                padding: 10px;
-                text-align: center;
+
+            .title h1 {
+                margin: 0;
+                color: #0a66c2 !important;
+                font-size: 32px;
+            }
+
+            .nav {
+                display: flex;
+                gap: 35px;
+            }
+
+            .nav a {
+                font-size: 18px;
+                color: #333;
+                text-decoration: none;
+            }
+
+            .nav a:hover {
+                color: #0a66c2;
+            }
+
+
+            /* MAIN AREA */
+            .middle {
+                display: flex;
+                min-height: calc(100vh - 130px);
+                align-items: stretch;
+            }
+
+
+            /* SIDEBAR */
+            .sidenav {
+                width: 220px;
+                padding: 25px 15px;
+                background-color: #dff3f8;
+                border-right: 1px solid #ddd;
+                flex-shrink: 0;
+            }
+
+            .sidenav a {
+                display: block;
+                padding: 13px 18px;
+                margin-bottom: 8px;
+                font-size: 17px;
+                color: #333;
+                text-decoration: none;
+                border-radius: 8px;
+            }
+
+            .sidenav a:hover {
+                background-color: white;
+                color: #0a66c2;
+            }
+
+
+            /* CONTENT */
+            .content {
+                flex: 1;
+                padding: 35px;
+                min-width: 0;
+            }
+
+            .content h1 {
+                margin: 0 0 8px 0;
+                color: #333 !important;
+                font-size: 30px;
+            }
+
+            .content p {
+                color: #666;
+                margin-bottom: 20px;
+            }
+            
+
+            .footer {
                 height: 60px;
-                background-color: rgba(186, 205, 210, 0.499);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                border-top: 1px solid #ddd;
+            }
+
+            .footer p {
+                margin: 0;
+                color: #555;
+                font-size: 14px;
             }
         </style>
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        />
     </head>
-    <body>
+    <body onload="EventData();displayDocumentData()">
         <div class="header">
             <div class="title">
                 <h1 style="color: rgb(42, 55, 246);">Linked IN</h1>
@@ -81,11 +143,26 @@
                 <a href="mypost.html">+My Post</a>
             </div>
             <div class="content">
-                <h1 style="color: burlywood;">Welcocme to Linked In page</h1>
-                <p>Build your professional network</p>
-                <div>
-                    <button>Join Now</button>
-                </div>
+                <p> View all the events you have created.</p>
+                <table id="eventTable" class="table table-border">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Event Type</th>
+                            <th>Event Name</th>
+                            <th>Start Date</th>
+                            <th>Start Time</th>
+                            <th>End Date</th>
+                            <th>End Time</th>
+                            <th>Event Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventTableBody"></tbody>
+                 </table>
+
+                <h1>My Documents</h1>
+                <div id="documentContainer"></div>
+
             </div>
         </div>
 
@@ -93,4 +170,6 @@
             <p>@2026 Linked In website,All rights are reserved</p>
         </div>
     </body>
+    <script src="event.js"></script>
+    <script src="document.js"></script>
 </html>

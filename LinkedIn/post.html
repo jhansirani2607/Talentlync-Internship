@@ -2,73 +2,172 @@
     <head>
         <title>LinkedIn post page</title>
         <style>
-            body{
+            body {
                 background-color: #f3f2ef;
+                font-family: Arial, sans-serif;
+                margin: 0;
             }
-            .header{
+
+            /* HEADER */
+            .header {
                 background-color: white;
                 height: 80px;
+                padding: 10px 20px;
+                border-bottom: 1px solid #ddd;
             }
-            
-            p{
+
+            .header h1 {
                 text-align: center;
-                margin-top: -20px;
+                margin: 10px 0;
             }
-            button{
+
+            .header p {
+                text-align: center;
+                margin-top: -10px;
+                color: #666;
+            }
+
+
+            /* MAIN POST AREA */
+            .postcreate {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 25px;
+                padding: 20px;
+                flex-wrap: wrap;
+            }
+
+
+            /* EACH FORM */
+            .main {
+                width: 400px;
+                margin: 10px;
+            }
+
+
+            /* FORM CARD */
+            .eventform {
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+
+            /* FORM ELEMENT */
+            .form {
+                margin-bottom: 18px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 7px;
+                font-weight: bold;
+                color: #333;
+            }
+
+
+            input,
+            textarea,
+            select {
+                width: 100%;
                 padding: 10px;
-                background-color: rgb(11, 11, 237);
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                margin-top: 5px;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+
+            /* RADIO BUTTONS */
+            input[type="radio"] {
+                width: auto;
+                margin-right: 5px;
+            }
+
+            label[for="online"],
+            label[for="inPerson"] {
+                display: inline;
+                font-weight: normal;
+                margin-right: 15px;
+            }
+
+
+            /* BUTTON */
+            button {
+                padding: 10px 18px;
+                background-color: #0a66c2;
                 color: white;
                 border: none;
+                border-radius: 5px;
+                cursor: pointer;
             }
-            input{
-                padding: 10px;
-                width: 100%;
+
+            button:hover {
+                background-color: #004182;
             }
-            .event{
-                height: 100px;
-                width:auto;
-            }
-            
-            .postcreate{
+
+
+            /* DATE AND TIME */
+            .list {
                 display: flex;
+                gap: 15px;
             }
-            h1{
+
+            .list .form {
+                flex: 1;
+            }
+
+
+            /* FOOTER */
+            .footer {
+                background-color: white;
+                padding: 15px;
                 text-align: center;
+                border-top: 1px solid #ddd;
             }
-            .main{
-                margin-left: 30px;
-                width: 400px;
-                margin: 30px auto;
+
+            .footer p {
+                margin: 0;
+                color: #555;
             }
-            .eventform{
-                padding: 10px;
-                border: 1px solid black;
-                 background-color: antiquewhite;
+
+
+            /* DOCUMENT */
+            #documentTitle {
+                margin-bottom: 10px;
             }
-            .list{
-                display: flex;
-                align-items: center;
-                justify-content: center;
+
+
+            /* POLL */
+            #extraOptions {
+                margin-top: 5px;
             }
-            .form {
-                margin-bottom: 20px;
+
+            #extraOptions .form {
+                margin-bottom: 15px;
             }
-            label {
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-             input {
-                margin-top: 10px; 
-                width: 100%;
-                padding: 10px;
-                
-            } 
-            textarea{
-                width: 100%;
-            }
-            .footer{
-                background-color:white;
-                padding: 10px;
+
+
+            /* MOBILE RESPONSIVE */
+            @media (max-width: 900px) {
+
+                .postcreate {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .main {
+                    width: 90%;
+                    max-width: 400px;
+                }
+
             }
         </style>
         <script>
@@ -91,84 +190,143 @@
                 <form class="eventform">
                     <div class="form">
                         <label>Event type</label>
-                        <input type="radio" name="event" value="online">Online
-                        <input type="radio" name="event" value="in person">In person
+
+                        <input type="radio" id="online" name="eventType" value="online">
+                        <label for="online">Online</label>
+
+                        <input type="radio" id="inPerson" name="eventType" value="in person">
+                        <label for="inPerson">In person</label>
                     </div>
                     <div class="form">
                         <label>Event name</label><br>
-                        <textarea rows="1" cols="20px"></textarea>
+                        <textarea rows="1" cols="20px" id="eventName"></textarea>
                     </div>
                     <div class="list">
                         <div class="form">
                             <label>start date</label>
-                            <input type="date" name="date">
+                            <input type="date" id="startDate" name="date">
                         </div>
                         
                         <div class="form">
                             <label>start time</label>
-                            <input type="time" name="time1">
+                            <input type="time" id="startTime"name="time1">
                         </div>
                     </div>
                     <div class="list">
                         <div class="form">
                             <label>end date</label>
-                            <input type="date" name="date">
+                            <input type="date" id="endDate" name="date">
                         </div>
                         
                         <div class="form">
                             <label>end time</label>
-                            <input type="time" name="time2">
+                            <input type="time" id="endTime" name="time2">
                         </div>
                     </div>
                     <div class="form">
                         <label>External event link</label>
-                        <textarea rows="1" cols="50"></textarea>
+                        <textarea rows="1" cols="50" id="eventLinks"></textarea>
                     </div>
-                    <button type="button" >Done</button>
-                    
+                    <button type="button" onclick="saveEvent()">Done</button>
                 </form>
             </div> 
+            
             <div class="main">
-             <h1>Share a document</h1>
-                <form class="eventform">
-                    <input type="file" accept=".pdf">
+                <h1>Share a document</h1>
+                <form class="eventform" >
+
+                    <div class="form">
+                        <label>Document title</label>
+                        <input
+                            type="text"
+                            id="documentTitle"
+                            placeholder="Enter document title"
+                            required
+                        >
+                    </div>
+
+                    <div class="form">
+                        <label>Select PDF</label>
+                        <input
+                            type="file"
+                            id="documentFile"
+                            accept=".pdf"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" onclick="saveDocument()">Share Document</button>
+
                 </form>
             </div>
+
+            
             <div class="main">
-              <h1>Create a poll</h1>
-              <form class="eventform">
-                <div class="from">
-                    <label>Your Question*</label>
-                    <textarea rows="2" cols="10" placeholder="how do you commute to work?"></textarea>
-                </div>
-                <br>
-                <div class="form">
-                    <label>Option1*</label>
-                    <input type="text" placeholder="public transportation" min="5" max="30">
-                </div>
-                <div class="form">
-                    <label>Option2*</label>
-                    <input type="text" placeholder="drive my self" min="5" max="30">
-                </div>
-                <div class="form">
-                    <button>+add option</button>
-                </div>
-                <div class="form">
-                    <label>Poll duration</label>
-                    <select>
-                        <option>1 day</option>
-                        <option>3 days</option>
-                        <option>1 Week</option>
-                        <option>2 weeks</option>
-                    </select>
-                </div>
-                <button> Done</button>
-               </form>
-            </div>      
+                <h1>Create a poll</h1>
+
+                <form class="eventform" >
+
+                    <div class="form">
+                        <label>Your Question *</label>
+
+                        <textarea
+                            id="pollQuestion"
+                            rows="3"
+                            placeholder="How do you commute to work?"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form">
+                        <label>Option 1 *</label>
+
+                        <input
+                            type="text"
+                            id="option1"
+                            placeholder="Public transportation"
+                            required
+                        >
+                    </div>
+
+                    <div class="form">
+                        <label>Option 2 *</label>
+
+                        <input
+                            type="text"
+                            id="option2"
+                            placeholder="Drive myself"
+                            required
+                        >
+                    </div>
+
+                    <div id="extraOptions"></div>
+
+                    <div class="form">
+                        <button type="button"> + Add Option </button>
+                    </div>
+
+                    <div class="form">
+                        <label>Poll duration</label>
+
+                        <select id="pollDuration">
+                            <option value="1 day">1 day</option>
+                            <option value="3 days">3 days</option>
+                            <option value="1 week">1 week</option>
+                            <option value="2 weeks">2 weeks</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Create Poll</button>
+
+                </form>
+            </div>
+              
         </div>
         <div class="footer">
             <button onclick="post()">Post</button>
             <button type="botton" onclick="window.location.href='mypost.html'">My Posts</button>
         </div>
+        <script src="event.js"></script>
+        <script src="document.js"></script>
     </body>
 </html>
