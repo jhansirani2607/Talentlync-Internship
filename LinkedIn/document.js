@@ -1,82 +1,158 @@
-const documents=localStorage.getItem("documentList")?JSON.parse(localStorage.getItem("documentList")):[];
+// =========================
+// DOCUMENT LIST
+// =========================
 
-function saveDocument(){
+const documents = localStorage.getItem("documentList")
+    ? JSON.parse(localStorage.getItem("documentList"))
+    : [];
 
-    let documentTitle=document.getElementById("documentTitle").value;
-    let documentFile=document.getElementById("documentFile").files[0];
 
+// =========================
+// SAVE DOCUMENT
+// =========================
 
-    let validation=true;
-    if(documentTitle=="")
-    {
+function saveDocument() {
+
+    let documentTitle = document.getElementById("documentTitle").value;
+    let documentFile = document.getElementById("documentFile").files[0];
+
+    // Title validation
+    if (documentTitle == "") {
         alert("Please give me document Title");
-        validation=false;
+        return;
     }
-    if(!documentFile)
-    {
+
+    // File validation
+    if (!documentFile) {
         alert("Please select a PDF file");
-        validation=false;
+        return;
     }
 
-    if(validation)
-    {
-        let documentObject={
-            id:Date.now(),
-            documentTitle:documentTitle,
-            documentFile:documentFile.name
-        }
+    // PDF validation
+    if (documentFile.type != "application/pdf") {
+        alert("Please select PDF file only");
+        return;
+    }
 
+
+    // Read PDF
+    let reader = new FileReader();
+
+    reader.onload = function () {
+
+        let documentObject = {
+
+            id: Date.now(),
+
+            documentTitle: documentTitle,
+
+            documentFile: documentFile.name,
+
+            // Actual PDF data
+            fileData: reader.result
+        };
+
+
+        // Add document
         documents.push(documentObject);
 
-        localStorage.setItem("documentList",JSON.stringify(documents));
+
+        // Save document in localStorage
+        localStorage.setItem(
+            "documentList",
+            JSON.stringify(documents)
+        );
+
 
         alert("Document posted successfully");
 
+
+        // Clear form
         clearDocument();
+    };
 
-    }
+
+    // Convert PDF to Base64
+    reader.readAsDataURL(documentFile);
 }
 
-function clearDocument(){
-    document.getElementById("documentTitle").value="";
-    document.getElementById("documentFile").value="";
+
+// =========================
+// CLEAR DOCUMENT
+// =========================
+
+function clearDocument() {
+
+    document.getElementById("documentTitle").value = "";
+
+    document.getElementById("documentFile").value = "";
 }
 
-function loadDocument(){
-    let documenList=localStorage.getItem("documentList")?JSON.parse(localStorage.getItem("documentList")):[];
-    return documenList;
+
+// =========================
+// LOAD DOCUMENT
+// =========================
+
+function loadDocument() {
+
+    let documentList = localStorage.getItem("documentList")
+        ? JSON.parse(localStorage.getItem("documentList"))
+        : [];
+
+    return documentList;
 }
+
+
+// =========================
+// DISPLAY DOCUMENT
+// =========================
 
 function displayDocumentData() {
 
     let documents = loadDocument();
+
     let container = document.getElementById("documentContainer");
 
     container.innerHTML = "";
 
+
+    // No documents
     if (documents.length == 0) {
-        container.innerHTML ="<p>No documents shared yet.</p>";
+
+        container.innerHTML =
+            "<p>No documents shared yet.</p>";
+
         return;
     }
 
-    documents.forEach(documentItem => {
+
+    // Display documents
+    documents.forEach(function (documentItem) {
 
         let card = `
-               <div class="document-card">
+        
+            <div class="document-card">
+
                 <h3>
-                    Title:
-                    ${documentItem.documentTitle}
+                    Title: ${documentItem.documentTitle}
                 </h3>
+
                 <p>
                     File Name:
-                    ${documentItem.documentFile}
+
+                    <a 
+                        href="${documentItem.fileData}"
+                        target="_blank"
+                    >
+                        ${documentItem.documentFile}
+                    </a>
+
                 </p>
-                <p>
-                    Document ID:
-                    ${documentItem.id}
-                </p>
+
             </div>
+        
         `;
+
         container.innerHTML += card;
     });
 }

@@ -1,6 +1,15 @@
 <html>
     <head>
         <title>LinkedIn post page</title>
+
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="table.css">
+        <link rel="stylesheet" href="card.css">
+
+
         <style>
             body {
                 background-color: #f3f2ef;
@@ -153,8 +162,9 @@
             #extraOptions .form {
                 margin-bottom: 15px;
             }
-
-
+            .rendering{
+                margin: 20px;
+            }
             /* MOBILE RESPONSIVE */
             @media (max-width: 900px) {
 
@@ -173,10 +183,11 @@
         <script>
             function post(){
                 alert("posted successfully");
+                window.location.href='mypost.html';
             }
         </script>
     </head>
-    <body>
+    <body onload="EventData();displayDocumentData()">
         <div class="header">  
             <h1>👤 Dakka Jhansi Rani</h1>
             <p>Post to Anyone</p>
@@ -188,6 +199,10 @@
             <div class="main">
                 <h1>Create an event</h1>
                 <form class="eventform">
+                    <div>
+                        <label for="eventID">Event ID</label>
+                        <input type="hidden" name="eventId" id="eventId" readonly />
+                    </div>
                     <div class="form">
                         <label>Event type</label>
 
@@ -324,8 +339,32 @@
         </div>
         <div class="footer">
             <button onclick="post()">Post</button>
-            <button type="botton" onclick="window.location.href='mypost.html'">My Posts</button>
         </div>
+
+        <div class="rendering">
+            <h1>My Posts</h1>
+            <table id="eventTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Event Type</th>
+                        <th>Event Name</th>
+                        <th>Start Date</th>
+                        <th>Start Time</th>
+                        <th>End Date</th>
+                        <th>End Time</th>
+                        <th>Event Link</th>
+                    </tr>
+                </thead>
+                <tbody id="eventTableBody"></tbody>
+            </table>
+
+
+        <h1>My Documents</h1>
+
+            <div id="documentContainer"></div>
+        </div>
+
         <script src="event.js"></script>
         <script src="document.js"></script>
     </body>
